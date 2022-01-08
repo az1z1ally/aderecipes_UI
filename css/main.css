@@ -1107,8 +1107,7 @@ footer{
 
 /*Change header background*/
 .scroll-header {
-	/*background: var(--green-2);*/
-	background: #fff;
+	background: var(--green-2);
 	box-shadow: var(--box-shadow);
 }
 
