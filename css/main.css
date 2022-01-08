@@ -225,6 +225,10 @@ ul{
 	font-weight: 600;
 }
 
+.blog__item-content a i{
+	padding-left: 1.5rem;
+}
+
 /* Components CSS end */
 
 
@@ -256,8 +260,10 @@ header .navbar{
 }
 
 header .navbar a{
-	letter-spacing: .1rem;
 	/*border-radius: .5rem;*/
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-transform: uppercase;
 	padding: .5rem 1.5rem;
 	color: var(--black);
 }
@@ -270,6 +276,7 @@ header .navbar a:hover{
 
 header .icon a {
 	font-size: 1.4rem;
+	text-transform: uppercase;
 	font-weight: bolder;
 	color: var(--black);
 }
@@ -452,10 +459,10 @@ header .icon #menu-bars{
 }
 
 .special__box::before {
-    content: "";
     position: absolute;
-    top: 0px;
-    left: 0px;
+    content: "";
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
     z-index: 1;
@@ -531,10 +538,65 @@ header .icon #menu-bars{
 	border-radius: .2rem;
 }
 
+
 .story__right .story__item{
-	border-radius: .2rem;
 	position: relative;
+	border-radius: .2rem;
+	z-index: 0;
+}
+
+.story__right .story__item::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    opacity: .5;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 27%, rgba(0, 0, 0, 0) 37%, black 100%);
+
+    z-index: 1; 
+}
+
+.story__right .story__item-img{
+	width: 100%;
 	height: 58rem;
+}
+
+.story__right .story__item-content{
+	position: absolute;
+	top: 42.5%;
+	left: 5%;
+	z-index: 2;
+	color: #fff;
+	padding: 1rem;
+}
+
+
+.story__right .story__item-content h3{
+	font-size: 4rem;
+	margin-bottom: 2rem;
+	line-height: 1.1em;
+}
+
+.story__right .story__item-content span{
+	display: inline-block;
+	margin-bottom: 2rem;
+}
+
+.story__right .story__btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    padding: 1em 2em;
+    background: #fff;
+    color: var(--dark);
+    font-weight: bold;
+}
+
+.story__right .story__btn i{
+	padding-left: 2rem;
 }
 
 
@@ -554,6 +616,18 @@ header .icon #menu-bars{
 	.story .heading{
 		text-align: left;
 		margin-bottom: 1rem;
+	}
+
+}
+
+@media only screen and (min-width: 800px){
+	.story__right .story__item-content{
+		top: 62.5%;
+		left: 5%;
+	}
+
+	.story__right .story__item-content h3{
+		line-height: 1.3em;
 	}
 }
 
@@ -586,7 +660,7 @@ header .icon #menu-bars{
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0.1));
+	background: rgba(0, 0, 0, 0.4);
 
 	z-index: 1;
 }
@@ -736,6 +810,76 @@ header .icon #menu-bars{
 	transform: scale(1.1);
 }
 
+
+
+/*All section CSS*/
+
+.all{
+	position: relative;
+    z-index: 0;
+    height: 67.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: url(../images/all.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+    
+}
+
+.all::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    opacity: .5;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 17%, rgba(0, 0, 0, 0) 27%, black 100%);
+
+    z-index: 1; 
+}
+
+.all__content{
+	position: relative;
+	z-index: 2;
+	text-align: center;
+	color: #fff;
+	margin: 0 auto;
+}
+
+.all__content h2{
+	font-size: 5rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    line-height: 1.1em;
+}
+
+.all__content p{
+    margin-bottom: 5rem;
+    font-size: 1.8rem;
+}
+
+
+
+@media only screen and (min-width: 767px){
+	.all__content{
+		max-width: 80%;
+	}
+
+
+	.all__content h2{
+		font-size: 7rem;
+	}
+
+	.all__content p{
+	    margin-bottom: 8rem;
+	    font-size: 1.6rem;
+	}
+}
 
 
 
@@ -996,8 +1140,8 @@ footer{
 		display: block;
 		padding: 1.5rem;
 		margin: 1rem;
-		font-size: 2rem;
-		/*background: var(--green-3);*/
+		font-size: 1.7rem;
+		
 	}
 
 	.home .home__wrapper .home__content h1{
