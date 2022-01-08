@@ -40,8 +40,11 @@ body{
 	font-size: 1.7rem;
 }
 
+/* Components CSSS */
+
 section{
-	padding: 8rem 7%;
+	/*padding: 5rem 7%;*/
+	padding: 5rem 0;
 }
 
 .container{
@@ -154,6 +157,80 @@ ul{
 	color: var(--light-green-2);
 }
 
+
+.blog__item{
+	border-radius: .5rem;
+	/*box-shadow: var(--box-shadow);*/
+}
+
+.blog__item-img{
+	width: 100%;
+	height: 25rem;
+	padding-bottom: 1.5rem;
+	overflow: hidden;
+
+	position: relative;
+	z-index: 0;
+}
+
+.blog__item-content{
+	padding: 2rem;
+	padding-top: 0;
+}
+
+.blog__item-content h3{
+	color: var(--dark);
+	font-size: 2rem;
+}
+
+.blog__item-content p{
+	position: relative;
+	z-index: 0;
+	display: flex;
+	justify-content: space-between;
+
+	margin-bottom: 1rem;
+	padding: .5rem 0;
+	font-size: 1.5rem;
+}
+
+.blog__item-content p::before {
+	position: absolute;
+	content: '';
+    z-index: -1;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: .1rem;
+    background: var(--black);
+}
+
+.blog__item-content span{
+	background: #fff;
+}
+
+.blog__item-content span:nth-child(1){
+	padding-right:1.5rem;
+}
+
+
+.blog__item-content span:nth-child(2){
+	padding-left:1.5rem;
+	margin-left: auto;
+	font-size: 1.2rem;
+}
+
+.blog__item-content a{
+	color: var(--green-1);
+	font-weight: 600;
+}
+
+/* Components CSS end */
+
+
+
+
+
 header{
 	position: fixed;
 	top: 0;left: 0; right: 0;
@@ -244,14 +321,15 @@ header .icon #menu-bars{
 	background-size: cover;
 
 	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: 100%;
 }
 
 .home .home__wrapper .home__content{
 	position: absolute;
-	left: 15%;
-	top: 25%;
-	max-width: 40%;
+	max-width: 90%;
 	background: rgba(0, 0, 0, 0.2);
 	padding: 5rem;
 	border-left:.2rem solid var(--green-1) ;
@@ -267,6 +345,14 @@ header .icon #menu-bars{
 	color: #f7f7f7;
 	padding: 1.5rem 0;
 	letter-spacing: .1rem;
+}
+
+@media only screen and (min-width: 767px) {
+	.home .home__wrapper .home__content{
+	 	max-width: 40%;
+	 	top: 25%;
+	 	left: 15%;
+	}
 }
 
 
@@ -362,7 +448,7 @@ header .icon #menu-bars{
 
 .special__box {
 	position: relative;
-	z-index: 1;
+	z-index: 0;
 }
 
 .special__box::before {
@@ -372,7 +458,7 @@ header .icon #menu-bars{
     left: 0px;
     height: 100%;
     width: 100%;
-    z-index: 2;
+    z-index: 1;
     
     background: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0.1));
 }
@@ -423,6 +509,53 @@ header .icon #menu-bars{
 
 }
 
+/*Story Section CSS*/
+
+.story__wrapper{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	gap: 3rem;
+}
+
+
+.story__left .blog__items-wrapper{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+}
+
+.story__left .blog__item-img{
+	height: 18rem;
+	border-radius: .2rem;
+}
+
+.story__right .story__item{
+	border-radius: .2rem;
+	position: relative;
+	height: 58rem;
+}
+
+
+@media only screen and (min-width: 767px){
+	.story__left{
+		flex: 3;
+	}
+
+	.story__right{
+		flex: 4;
+	}
+
+	.story__left .blog__items-wrapper{
+		gap: 1.5rem;
+	}
+
+	.story .heading{
+		text-align: left;
+		margin-bottom: 1rem;
+	}
+}
 
 
 
@@ -431,6 +564,14 @@ header .icon #menu-bars{
 	position: relative;
 	display: flex;
 	gap: 1.5rem;
+}
+
+.media__one{
+	flex: 4;
+}
+
+.media__two{
+	flex: 2;
 }
 
 .media__one, .media__two{
@@ -517,7 +658,6 @@ header .icon #menu-bars{
 .whyus__item{
 	background: var(--green-3);
 	padding: 2rem;
-	/*border: .3rem solid var(--green-1);*/
 	border-radius: 1.2rem;
 
 	text-align: center;
@@ -561,36 +701,7 @@ header .icon #menu-bars{
 
 /*Recipe section*/
 
-.recipe__filter div{
-	display: inline-block;
-	border-top: .25rem solid var(--green-2);
-	border-bottom: .25rem solid var(--green-2);
-	border-radius: .5rem;
-	padding: .5rem;
-	margin: 2rem 0;
-}
-
-
-.recipe .recipe__filter label{
-	font-weight: bold;
-
-	margin-right: 1rem;
-}
-
-.recipe .recipe__filter select {
-	background: var(--green-3);
-	font-size: 1.6rem;
-	font-weight: bold;
-
-	cursor: pointer;
-}
-
-.recipe .recipe__filter div:hover select{
-	color: var(--black);
-	letter-spacing: .1rem;
-}
-
-.recipe .recipe__wrapper{
+.recipe .blog__items-wrapper{
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
 	gap: 1.5rem;
@@ -598,63 +709,34 @@ header .icon #menu-bars{
 	margin-top: 2.5rem;
 }
 
-.recipe .recipe__wrapper .recipe__box{
-	background: var(--light-green-2);
-	/*border: .4rem solid var(--green-3);*/
-	border-radius: .5rem;
-	box-shadow: var(--box-shadow);
-}
-
-.recipe .recipe__wrapper .recipe__box .recipe__box-img{
-	width: 100%;
-	height: 25rem;
-	padding-bottom: 1.5rem;
-	overflow: hidden;
-
-	position: relative;
-	z-index: 0;
-}
-
-.recipe .recipe__wrapper .recipe__box .recipe__box-img::before{
+.recipe .blog__item-img::before{
 	content: '';
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	width: 100%;
 	height: 0%;
-	background: linear-gradient(45deg, rgba(39, 174, 96, .5), rgba(0, 0, 0, .5));
+	background: linear-gradient(to right, rgba(39, 174, 96, .5), rgba(0, 0, 0, .5));
 	transition: .3s linear;
 	z-index: 1;
 }
 
-.recipe .recipe__wrapper .recipe__box:hover .recipe__box-img::before{
+.recipe .blog__item:hover .blog__item-img::before{
 	top: 0;
 	height: 100%;
 }
 
 
 
-.recipe .recipe__wrapper .recipe__box .recipe__box-img img{
+.recipe .blog__item-img img{
 	transition: .3s linear;
 }
 
-.recipe .recipe__wrapper .recipe__box:hover img{
+.recipe .blog__item:hover img{
 	transform: scale(1.1);
 }
 
-.recipe .recipe__wrapper .recipe__box .recipe__box-content{
-	padding: 2rem;
-	padding-top: 0;
-}
 
-.recipe .recipe__wrapper .recipe__box .recipe__box-content h3{
-	color: var(--dark);
-	font-size: 2.2rem;
-}
-
-.recipe .recipe__wrapper .recipe__box .recipe__box-content p{
-	padding: .5rem 0;
-}
 
 
 
@@ -926,12 +1008,6 @@ footer{
 		margin-bottom: 2rem;
 	}
 
-	.recipe__filter{
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
 	.media__wrapper{
 		gap: 1rem;
 	}
@@ -958,9 +1034,5 @@ footer{
 
 	body{
 		font-size: 1.7rem;
-	}
-
-	.special{
-		margin: 10rem 0;
 	}
 }
